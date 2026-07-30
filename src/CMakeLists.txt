@@ -563,12 +563,17 @@ if (BUILD_CLIENT)
 	add_subdirectory(client)
 	add_subdirectory(gui)
 	add_subdirectory(irrlicht_changes)
+
+	if(BUILD_UI)
+		add_subdirectory(ui)
+	endif()
 endif(BUILD_CLIENT)
 
 list(APPEND client_SRCS
 	${benchmark_client_SRCS}
 	${common_SRCS}
 	${gui_SRCS}
+	${ui_SRCS}
 	${client_network_SRCS}
 	${client_irrlicht_changes_SRCS}
 	${client_SCRIPT_SRCS}

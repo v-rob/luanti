@@ -14,6 +14,7 @@ General options and their default values:
     BUILD_UNITTESTS=TRUE       - Build unittest sources
     BUILD_BENCHMARKS=FALSE     - Build benchmark sources
     BUILD_DOCUMENTATION=TRUE   - Build doxygen documentation
+    BUILD_UI=FALSE             - Build experimental UI API; requires BUILD_CLIENT
     CMAKE_BUILD_TYPE=Release   - Type of build (optimizaton level, debug information)
         Release                - Release build
         Debug                  - Debug build

@@ -1,0 +1,5 @@
+file(GLOB ui_HDRS "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+
+set(ui_SRCS
+	${ui_HDRS}
+	PARENT_SCOPE)

@@ -39,6 +39,7 @@ set(BUILD_SERVER FALSE CACHE BOOL "Build server")
 set(BUILD_UNITTESTS TRUE CACHE BOOL "Build unittests")
 set(BUILD_BENCHMARKS FALSE CACHE BOOL "Build benchmarks")
 set(BUILD_DOCUMENTATION TRUE CACHE BOOL "Build documentation")
+set(BUILD_UI FALSE CACHE BOOL "Build experimental UI; requires BUILD_CLIENT")
 
 set(DEFAULT_ENABLE_LTO TRUE)
 # by default don't enable on Debug builds to get faster builds
@@ -77,6 +78,7 @@ message(STATUS "BUILD_SERVER: " ${BUILD_SERVER})
 message(STATUS "BUILD_UNITTESTS: " ${BUILD_UNITTESTS})
 message(STATUS "BUILD_BENCHMARKS: " ${BUILD_BENCHMARKS})
 message(STATUS "BUILD_DOCUMENTATION: " ${BUILD_DOCUMENTATION})
+message(STATUS "BUILD_UI: " ${BUILD_UI})
 message(STATUS "RUN_IN_PLACE: " ${RUN_IN_PLACE})
 
 set(WARN_ALL TRUE CACHE BOOL "Enable -Wall for Release build")
@@ -375,6 +377,10 @@ if(BUILD_DOCUMENTATION)
 			COMMENT "Generating API documentation with Doxygen" VERBATIM
 		)
 	endif()
+endif()
+
+if(BUILD_UI AND NOT BUILD_CLIENT)
+	message(FATAL_ERROR "BUILD_UI requires BUILD_CLIENT")
 endif()
 
 # Fetch Tracy
