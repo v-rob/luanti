@@ -80,6 +80,7 @@
 		[scheduled bump for 5.16.0]
 	PROTOCOL VERSION 53
 		Added optional "do_interpolate_rotation" u8 to AO_CMD_UPDATE_POSITION
+		Added TOCLIENT_UI_MESSAGE and TOSERVER_UI_MESSAGE
 		[scheduled bump for 5.17.0]
 */
 

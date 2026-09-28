@@ -1345,6 +1345,14 @@ void Client::sendInventoryAction(InventoryAction *a)
 	Send(&pkt);
 }
 
+void Client::sendUiMessage(const char *data, size_t len)
+{
+	NetworkPacket pkt(TOSERVER_UI_MESSAGE, 0);
+	pkt.putRawString(data, len);
+
+	Send(&pkt);
+}
+
 bool Client::canSendChatMessage() const
 {
 	u32 now = time(NULL);

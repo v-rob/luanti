@@ -2175,6 +2175,7 @@ const ClientEventHandler Game::clientEventHandler[CLIENTEVENT_MAX] = {
 	{&Game::handleClientEvent_ShowFormSpec},
 	{&Game::handleClientEvent_ShowCSMFormSpec},
 	{&Game::handleClientEvent_ShowPauseMenuFormSpec},
+	{&Game::handleClientEvent_UiMessage},
 	{&Game::handleClientEvent_HandleParticleEvent},
 	{&Game::handleClientEvent_HandleParticleEvent},
 	{&Game::handleClientEvent_HandleParticleEvent},
@@ -2266,6 +2267,12 @@ void Game::handleClientEvent_ShowPauseMenuFormSpec(ClientEvent *event, CameraOri
 
 	delete event->show_formspec.formspec;
 	delete event->show_formspec.formname;
+}
+
+void Game::handleClientEvent_UiMessage(ClientEvent *event, CameraOrientation *cam)
+{
+	// TODO
+	delete event->ui_message.data;
 }
 
 void Game::handleClientEvent_HandleParticleEvent(ClientEvent *event,

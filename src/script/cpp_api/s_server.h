@@ -40,6 +40,8 @@ public:
 	void freeDynamicMediaCallback(u32 token);
 	void on_dynamic_media_added(u32 token, const std::string &playername);
 
+	void receive_ui_message(const char *name, const char *data, size_t len);
+
 private:
 	void getAuthHandler();
 	void readPrivileges(int index, std::set<std::string> &result);

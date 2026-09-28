@@ -1390,6 +1390,15 @@ void Server::handleCommand_InventoryFields(NetworkPacket* pkt)
 	actionstream << ", possible exploitation attempt" << std::endl;
 }
 
+void Server::handleCommand_UiMessage(NetworkPacket* pkt)
+{
+	session_t peer_id = pkt->getPeerId();
+	RemoteClient *client = getClient(peer_id, CS_Invalid);
+
+	m_script->receive_ui_message(
+		client->getName().c_str(), pkt->getString(0), pkt->getSize());
+}
+
 void Server::handleCommand_FirstSrp(NetworkPacket* pkt)
 {
 	session_t peer_id = pkt->getPeerId();

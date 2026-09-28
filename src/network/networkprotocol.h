@@ -658,6 +658,11 @@ enum ToClientCommand : u16
 		v3f added_pos
 	*/
 
+	TOCLIENT_UI_MESSAGE = 0x5e,
+	/*
+		u8[] message_data
+	*/
+
 	TOCLIENT_SRP_BYTES_S_B = 0x60,
 	/*
 		Belonging to AUTH_MECHANISM_SRP.
@@ -857,6 +862,11 @@ enum ToServerCommand : u16
 			u8[len] field name
 			u32 len
 			u8[len] field value
+	*/
+
+	TOSERVER_UI_MESSAGE = 0x3d,
+	/*
+		u8[] message_data
 	*/
 
 	TOSERVER_REQUEST_MEDIA = 0x40,
